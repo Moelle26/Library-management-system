@@ -13,8 +13,8 @@ public class ConsoleUI {
       showMenu();
       int choice = Integer.parseInt(IO.readln("Indtast valg "));
       switch (choice) {
-        case 1 -> borrowBook();
-        case 2 -> returnBook();
+        case 1 -> borrowMaterial();
+        case 2 -> returnMaterial();
         case 3 -> showLoans();
         case 0 -> running = false;
         default -> IO.println("Ugyldigt valg. Indtast igen ");
@@ -32,28 +32,28 @@ public class ConsoleUI {
   }
 
 
-  private void borrowBook() {
-    int ID = Integer.parseInt(IO.readln("Indtast bog ID "));
+  private void borrowMaterial() {
+    int ID = Integer.parseInt(IO.readln("Indtast materialets ID "));
     int memberNumber = Integer.parseInt(IO.readln("Indtast medlemsnummer "));
 
-    boolean succes = library.loanResource(ID,memberNumber);
+    LoanResult succes = library.loanResource(ID,memberNumber);
 
-    if (succes) {
-      IO.println("Bog udlånt");
+    if (succes == LoanResult.SUCCES) {
+      IO.println("Materiale udlånt");
     } else {
-      IO.println("Lånt misslykedes");
+      IO.println("Lån mislykkedes");
     }
   }
 
-  private void returnBook() {
-    int bookId = Integer.parseInt(IO.readln("Indtast bog ID "));
+  private void returnMaterial() {
+    int bookId = Integer.parseInt(IO.readln("Indtast materialets ID "));
 
     boolean succes = library.returnBook(bookId);
 
     if (succes) {
-      IO.println("Bog afleveret");
+      IO.println("Materiale afleveret");
     } else {
-      IO.println("aflevering misslykedes");
+      IO.println("aflevering mislykkedes");
     }
   }
 
