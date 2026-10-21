@@ -1,7 +1,7 @@
-public enum Loan {
+public enum LoanResult {
   SUCCES,
   MEMBER_NOT_FOUND,
-  BOOK_NOT_FOUND,
+  NOT_FOUND,
   ALREADY_LOANED,
 
 }
