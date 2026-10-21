@@ -1,8 +1,8 @@
 public class Videogame extends Resource{
     String platform;
 
-    public Videogame(String title, String creator, long identifier, String platform) {
-        super(title, creator, identifier);
+    public Videogame(String title, String creator, long identifier, int ID, String platform) {
+        super(title, creator, identifier, ID);
         this.platform = platform;
     }
 
@@ -20,5 +20,8 @@ public class Videogame extends Resource{
 
     public String platform(){
         return platform;
+    }
+    public String toString() {
+        return String.format(title() +" studio: " + studio() + " EAN: " + EAN() + " platform: " + platform());
     }
 }

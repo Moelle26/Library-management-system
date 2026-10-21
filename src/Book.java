@@ -1,10 +1,8 @@
 public class Book extends Resource {
-    int ID;
     int page;
 
     public Book(String title, String creator, long identifier, int ID, int page) {
-        super(title, creator, identifier);
-        this.ID = ID;
+        super(title, creator, identifier, ID);
         this.page = page;
     }
 
@@ -26,6 +24,10 @@ public class Book extends Resource {
 
     public int page() {
         return page;
+    }
+
+    public String toString() {
+        return String.format(title() +" af: " + author() + " ISBN: " + ISBN() + " Antal sider: " + page());
     }
 
 }
