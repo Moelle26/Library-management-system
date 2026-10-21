@@ -6,24 +6,20 @@ public class Library {
   private ArrayList<Book> books = new ArrayList<>();
   private ArrayList<Member> members = new ArrayList<>();
   private ArrayList<Loan> loans = new ArrayList<>();
+  private ArrayList<Resource> resources = new ArrayList<>();
 
-  public void addBook(Book book) {
-    books.add(book);
+  public void addResource(Resource resource) {
+    resources.add(resource);
   }
 
   public void addMember(Member member) {
     members.add(member);
   }
 
-  public void printMembers() {
-    for (Member member : members) {
-      IO.println(member);
-    }
-  }
 // Finder bog
   public Book getBooks(int id) {
     for (Book book : books) {
-      if (id == book.id()) {
+      if (id == book.identifier()) {
         return book;
       }
     }
@@ -49,7 +45,7 @@ public class Library {
       return false;
     }
     for (Loan loan : loans) {
-      if (loan.getBook().id() == bookId) {
+      if (loan.getBook().identifier == bookId) {
         return false;
       }
     }
@@ -59,7 +55,7 @@ public class Library {
 // Finder lånet for den bog og fjerner det fra listen
   public boolean returnBook(int bookId) {
     for (Loan loan : loans) {
-      if (loan.getBook().id() == bookId) {
+      if (loan.getBook().identifier == bookId) {
         loans.remove(loan);
         return true;
       }
