@@ -30,10 +30,10 @@ public class Library {
   }
 
 // Finder bog
-  public Book getBooks(int id) {
-    for (Book book : books) {
-      if (id == book.ID) {
-        return book;
+  public Resource getResources(int ID) {
+    for (Resource resource : resources) {
+      if (ID == resource.ID) {
+        return resource;
       }
     }
     return null;
@@ -48,27 +48,28 @@ public class Library {
     return null;
   }
 // Tjekker om member og bog findes, og om bogen allerede er udlånt, ellers oprettes et nyt Loan
-  public boolean loanBook(int bookId, int memberNumber) {
+  public LoanResult loanResource(int ID, int memberNumber) {
+
     Member member = getMember(memberNumber);
     if (member == null) {
-      return false;
+      return LoanResult.MEMBER_NOT_FOUND;
     }
-    Book book = getBooks(bookId);
-    if (book == null) {
-      return false;
+    Resource resource = getResources(ID);
+    if (resource == null) {
+      return LoanResult.NOT_FOUND;
     }
     for (Loan loan : loans) {
-      if (loan.getBook().ID == bookId) {
-        return false;
+      if (loan.getResource().ID == getResources(ID).ID) {
+        return LoanResult.ALREADY_LOANED;
       }
     }
-    loans.add(new Loan(book, member, LocalDate.now()));
-    return true;
+    loans.add(new Loan(resource, member, LocalDate.now()));
+    return LoanResult.SUCCES;
   }
 // Finder lånet for den bog og fjerner det fra listen
   public boolean returnBook(int bookId) {
     for (Loan loan : loans) {
-      if (loan.getBook().ID == bookId) {
+      if (loan.getResource().ID == bookId) {
         loans.remove(loan);
         return true;
       }
