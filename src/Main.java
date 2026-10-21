@@ -30,11 +30,11 @@ void main() {
   library.addMember(member3);
 
 
-  library.addBooks(book1);
-  library.addBooks(book2);
-  library.addBooks(book3);
-
-  library.addMovie(movie1);
+//  library.addBooks(book1);
+//  library.addBooks(book2);
+//  library.addBooks(book3);
+//
+//  library.addMovie(movie1);
 
 
 

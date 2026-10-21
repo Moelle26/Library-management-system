@@ -33,10 +33,10 @@ public class ConsoleUI {
 
 
   private void borrowBook() {
-    int bookId = Integer.parseInt(IO.readln("Indtast bog ID "));
+    int ID = Integer.parseInt(IO.readln("Indtast bog ID "));
     int memberNumber = Integer.parseInt(IO.readln("Indtast medlemsnummer "));
 
-    boolean succes = library.loanBook(bookId, memberNumber);
+    boolean succes = library.loanResource(ID,memberNumber);
 
     if (succes) {
       IO.println("Bog udlånt");
