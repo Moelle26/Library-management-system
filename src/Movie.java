@@ -29,6 +29,6 @@ public class Movie extends Resource {
     }
 
     public String toString() {
-        return String.format(title() +" instrukør:" + director() + " Studio: " + studio() + " Filmens varighed: " + duration());
+        return String.format(title() +" instrukør: " + director() + " Studio: " + studio() + " Filmens varighed: " + duration());
     }
 }

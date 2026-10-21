@@ -22,6 +22,6 @@ public class Audiobook extends Resource {
         return duration;
     }
     public String toString() {
-        return String.format(title() +" forfatter:" + author() + " ISBN: " + ISBN() + " Bogens varighed: " + duration());
+        return String.format(title() +" forfatter: " + author() + " ISBN: " + ISBN() + " Bogens varighed: " + duration());
     }
 }
