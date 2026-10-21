@@ -28,4 +28,8 @@ public class Book extends Resource {
         return page;
     }
 
+    public String toString() {
+        return String.format(title() +" af :" + author() + " ISBN: " + ISBN() + " Antal sider: " + page());
+    }
+
 }

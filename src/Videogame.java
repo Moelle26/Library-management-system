@@ -21,4 +21,7 @@ public class Videogame extends Resource{
     public String platform(){
         return platform;
     }
+    public String toString() {
+        return String.format(title() +" studio:" + studio() + " EAN: " + EAN() + " platform: " + platform());
+    }
 }
