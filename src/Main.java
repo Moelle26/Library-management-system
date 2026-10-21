@@ -15,14 +15,15 @@ void main() {
   Member member3 = new Member("Peter", 333);
 
 
+
   library.addMember(member1);
   library.addMember(member2);
   library.addMember(member3);
 
 
-  library.addResource(book1);
-  library.addResource(book2);
-  library.addResource(book3);
+  library.addBooks(book1);
+  library.addBooks(book2);
+  library.addBooks(book3);
 
   ConsoleUI consoleUI = new ConsoleUI(library);
 
