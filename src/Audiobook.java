@@ -1,0 +1,25 @@
+public class Audiobook extends Resource {
+    String duration;
+
+    public Audiobook (String title, String creator, long identifier, String duration) {
+        super(title, creator, identifier);
+        this.duration = duration;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public String author() {
+        return creator;
+    }
+
+    public long ISBN(){
+        return identifier;
+    }
+
+    public String duration() {
+        return duration;
+    }
+
+}
