@@ -20,6 +20,10 @@ public class Movie extends Resource {
         return identifier;
     }
 
+    public int ID(){
+        return ID;
+    }
+
     public String director(){
         return director;
     }
