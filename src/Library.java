@@ -54,9 +54,9 @@ public class Library {
     return LoanResult.SUCCES;
   }
 // Finder lånet for den bog og fjerner det fra listen
-  public boolean returnBook(int bookId) {
+  public boolean returnResource(int ID) {
     for (Loan loan : loans) {
-      if (loan.getResource().ID == bookId) {
+      if (loan.getResource().ID == ID) {
         loans.remove(loan);
         return true;
       }

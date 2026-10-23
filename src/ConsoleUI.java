@@ -48,7 +48,7 @@ public class ConsoleUI {
   private void returnMaterial() {
     int bookId = Integer.parseInt(IO.readln("Indtast materialets ID "));
 
-    boolean succes = library.returnBook(bookId);
+    boolean succes = library.returnResource(bookId);
 
     if (succes) {
       IO.println("Materiale afleveret");
