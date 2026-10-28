@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MemberTest {
 
   @Test
-  void testGetName(){
+  void testGetName() {
 
     //Arrange
     Member member1 = new Member("Galf", 111);
@@ -18,7 +18,7 @@ public class MemberTest {
   }
 
   @Test
-  void testGetMemberNumber(){
+  void testGetMemberNumber() {
 
     // Arrange
     Member member1 = new Member("Galf", 111);

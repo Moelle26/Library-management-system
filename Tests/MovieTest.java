@@ -5,70 +5,64 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MovieTest {
 
-    Movie movie;
+  Movie movie;
 
-    @BeforeEach
-    void setup() {
-        movie = new Movie("The Uprising", "Scanbox A/S", 2736482748L, 4, "Paul Greengrass", "127 min");
-    }
+  @BeforeEach
+  void setup() {
+    movie = new Movie("The Uprising", "Scanbox A/S", 2736482748L, 4, "Paul Greengrass", "127 min");
+  }
 
-    @Test
-    void testMovieTitle() {
-        //Arrange
-        // Act
-        final String title = movie.title();
+  @Test
+  void testMovieTitle() {
+    // Act
+    final String title = movie.title();
 
-        // Assert
-        assertEquals("The Uprising", title);
-    }
+    // Assert
+    assertEquals("The Uprising", title);
+  }
 
-    @Test
-    void testCreator() {
+  @Test
+  void testCreator() {
+    // Act
+    final String creator = movie.studio();
 
-        // Act
-        final String creator = movie.studio();
+    // Assert
+    assertEquals("Scanbox A/S", creator);
+  }
 
-        // Assert
-        assertEquals("Scanbox A/S", creator);
-    }
+  @Test
+  void testIdentifier() {
+    // Act
+    final long identifier = movie.EAN();
 
-    @Test
-    void testIdentifier() {
+    // Assert
+    assertEquals(2736482748L, identifier);
+  }
 
-        // Act
-        final long identifier = movie.EAN();
+  @Test
+  void testID() {
+    // Act
+    final int ID = movie.ID();
 
-        // Assert
-        assertEquals(2736482748L, identifier);
-    }
+    // Assert
+    assertEquals(4, ID);
+  }
 
-    @Test
-    void testID() {
+  @Test
+  void testDirector() {
+    // Act
+    String director = movie.director();
 
-        // Act
-        final int ID = movie.ID();
+    // Assert
+    assertEquals("Paul Greengrass", director);
+  }
 
-        // Assert
-        assertEquals(4, ID);
-    }
+  @Test
+  void testDuration() {
+    // Act
+    String duration = movie.duration();
 
-    @Test
-    void testDirector() {
-
-        // Act
-        String director = movie.director();
-
-        // Assert
-        assertEquals("Paul Greengrass", director);
-    }
-
-    @Test
-    void testDuration() {
-
-        // Act
-        String duration = movie.duration();
-
-        // Assert
-        assertEquals("127 min", duration);
-    }
+    // Assert
+    assertEquals("127 min", duration);
+  }
 }
