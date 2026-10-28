@@ -36,7 +36,7 @@ public class ConsoleUI {
     int ID = Integer.parseInt(IO.readln("Indtast materialets ID "));
     int memberNumber = Integer.parseInt(IO.readln("Indtast medlemsnummer "));
 
-    LoanResult succes = library.loanResource(ID,memberNumber);
+    LoanResult succes = library.loanResource(ID, memberNumber);
 
     if (succes == LoanResult.SUCCES) {
       IO.println("Materiale udlånt");

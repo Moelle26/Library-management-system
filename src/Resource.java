@@ -10,6 +10,5 @@ public class Resource {
     this.creator = creator;
     this.identifier = identifier;
     this.ID = ID;
-
   }
 }
