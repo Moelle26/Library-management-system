@@ -6,7 +6,11 @@ public class Library {
   private ArrayList<Member> members = new ArrayList<>();
   private ArrayList<Loan> loans = new ArrayList<>();
   private ArrayList<Resource> resources = new ArrayList<>();
+  private LoanPolicy loanPolicy;
 
+  public Library(LoanPolicy loanPolicy) {
+    this.loanPolicy = loanPolicy;
+  }
 
   public void addResource(Resource resource){
   resources.add(resource);
@@ -45,10 +49,19 @@ public class Library {
     if (resource == null) {
       return LoanResult.NOT_FOUND;
     }
+
+    if (!loanPolicy.canLoan(member,resource,loans)) {
+      return LoanResult.NOT_PERMITTED;
+    }
+
+
     for (Loan loan : loans) {
       if (loan.getResource().ID == getResources(ID).ID) {
         return LoanResult.ALREADY_LOANED;
       }
+    }
+    if (!loanPolicy.canLoan(member,resource,loans)){
+
     }
     loans.add(new Loan(resource, member, LocalDate.now()));
     return LoanResult.SUCCES;

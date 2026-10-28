@@ -3,5 +3,6 @@ public enum LoanResult {
   MEMBER_NOT_FOUND,
   NOT_FOUND,
   ALREADY_LOANED,
+  NOT_PERMITTED
 
 }
