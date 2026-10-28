@@ -55,7 +55,7 @@ public class Library {
       return LoanResult.NOT_FOUND;
     }
 
-    if (!loanPolicy.canLoan(member, resource)) {
+    if (!loanPolicy.canLoan(member, resource, loans)) {
       return LoanResult.NOT_PERMITTED;
     }
 
