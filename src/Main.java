@@ -1,7 +1,8 @@
 void main() {
   LoanPolicy standardLoanPolicy = new StandardLoanPolicy();
   Library library = new Library(standardLoanPolicy);
-
+  LoanPolicy MaxNumberVideoMoviePolicy = new MaxNumberVideoMoviePolicy();
+  LoanPolicy AudioMaxDaysPolicy = new AudioMaxDaysPolicy();
 
 //Book oprettelse
   Book book1 = new Book("Kastanjemanden", " Søren Sveistrup", 9781492072508L, 1, 50);
