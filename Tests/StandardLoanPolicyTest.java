@@ -27,7 +27,7 @@ public class StandardLoanPolicyTest {
 
     StandardLoanPolicy Policy = new StandardLoanPolicy();
 
-    Member member = new Member("Galf", 111);
+
     Videogame videogame = new Videogame("GTA 6", "Rockstar", 6738748208L, 5, "Playstation");
     LocalDate startDate = LocalDate.of(2026, 1, 1);
 
