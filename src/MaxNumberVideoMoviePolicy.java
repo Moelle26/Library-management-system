@@ -24,6 +24,6 @@ public class MaxNumberVideoMoviePolicy implements LoanPolicy {
 
     @Override
     public LocalDate calculateDueDate(Resource resource, LocalDate localDate) {
-        return null;
+        return localDate.plusDays(30);
     }
 }

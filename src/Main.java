@@ -11,9 +11,12 @@ void main() {
 
   //movie oprettelse
   Movie movie1 = new Movie("The Uprising", "Scanbox A/S", 2736482748L, 4, "Paul Greengrass", "127 min");
+  Movie movie2 = new Movie("Django", "Columbia Pictures", 639927492L, 8, "Stacey Sher", "165 min");
 
   // Videogame oprettelse
   Videogame videogame1 = new Videogame("GTA 6", "Rockstar", 6738748208L, 5, "Playstation");
+  Videogame videogame2 = new Videogame("CS 2", "Valve", 64836482L , 7, "Computerspil");
+
 
   // Audiobook oprettelse
   Audiobook audiobook1 = new Audiobook("Mørkeland", "Camilla og Kristine", 43776895894L, 6, "12,2 timer");

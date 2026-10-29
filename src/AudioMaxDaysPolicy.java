@@ -4,7 +4,7 @@ import java.util.List;
 public class AudioMaxDaysPolicy implements LoanPolicy {
     @Override
     public boolean canLoan(Member member, Resource resource, List<Loan> loans) {
-        return false;
+        return true;
     }
 
     @Override
@@ -12,6 +12,6 @@ public class AudioMaxDaysPolicy implements LoanPolicy {
         if (resource instanceof Audiobook) {
             return localDate.plusDays(14);
         } else
-            return null;
+            return localDate.plusDays(30);
     }
 }
