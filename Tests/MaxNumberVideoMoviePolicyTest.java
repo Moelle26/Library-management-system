@@ -4,8 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MaxNumberVideoMoviePolicyTest {
     @Test
@@ -43,7 +42,7 @@ public class MaxNumberVideoMoviePolicyTest {
         Videogame videogame2 = new Videogame("CS 2", "Valve", 64836482L , 7, "Computerspil");
         Movie movie2 = new Movie("Django", "Columbia Pictures", 639927492L, 8, "Stacey Sher", "165 min");
 
-        List<Loan> loans = new ArrayList<>();
+
         Library library = new Library(Policy);
         library.addMember(member1);
         library.addResource(movie1);
@@ -53,14 +52,55 @@ public class MaxNumberVideoMoviePolicyTest {
         library.loanResource(4, 111);
         library.loanResource(5, 111);
         library.loanResource(7, 111);
+        List<Loan> loans1 = library.findLoansByMemberNumber(111);
 
-        library.loanResource(8, 111);
 
-        boolean result = Policy.canLoan(member1, movie2, loans);
+
+        boolean result = Policy.canLoan(member1, movie2, loans1);
+
+        assertFalse(result);
+
+
+    }
+    @Test
+    void testLoanBelongsToAnotherMember() {
+        Member member1 = new Member("Galf", 111);
+        Member member2 = new Member("Søren", 222);
+        Movie movie1 = new Movie("The Uprising", "Scanbox A/S", 2736482748L, 4, "Paul Greengrass", "127 min");
+        MaxNumberVideoMoviePolicy policy = new MaxNumberVideoMoviePolicy();
+        Library library = new Library(policy);
+
+        library.addMember(member1);
+        library.addMember(member2);
+        library.addResource(movie1);
+        library.loanResource(4,111);
+        List<Loan> loans = new ArrayList<>();
+        Loan loan = new Loan(movie1,member1, LocalDate.now());
+        loans.add(loan);
+
+        boolean result = policy.canLoan(member2, movie1, loans);
 
         assertTrue(result);
+    }
 
+    @Test
+    void testInstanceOfVideoOrMovie() {
+        Member member1 = new Member("Galf", 111);
+        Audiobook audiobook1 = new Audiobook("Mørkeland", "Camilla og Kristine", 43776895894L, 6, "12,2 timer");
+        Movie movie1 = new Movie("The Uprising", "Scanbox A/S", 2736482748L, 4, "Paul Greengrass", "127 min");
 
+        MaxNumberVideoMoviePolicy policy = new MaxNumberVideoMoviePolicy();
+        Library library = new Library(policy);
+        library.addMember(member1);
+        library.addResource(audiobook1);
+        library.addResource(movie1);
+        library.loanResource(6, 111);
+        library.loanResource(4,111);
+        List<Loan> loans = new ArrayList<>();
+
+        boolean result = policy.canLoan(member1, movie1, loans);
+
+        assertTrue(result);
     }
 
 
@@ -88,6 +128,7 @@ public class MaxNumberVideoMoviePolicyTest {
 
         assertEquals(LocalDate.of(2026, 1, 31), dueDate);
     }
+
 
 }
 
