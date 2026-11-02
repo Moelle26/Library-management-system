@@ -11,4 +11,8 @@ public class Resource {
     this.identifier = identifier;
     this.ID = ID;
   }
+
+  public long getIdentifier() {
+    return identifier;
+  }
 }

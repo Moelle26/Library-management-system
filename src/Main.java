@@ -41,6 +41,7 @@ void main() {
   library.addMember(member2);
   library.addMember(member3);
 
+  LibraryLoader libraryLoader = new LibraryLoader();
 
   ConsoleUI consoleUI = new ConsoleUI(library);
 

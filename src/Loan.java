@@ -19,6 +19,10 @@ public class Loan {
     return member;
   }
 
+  public LocalDate getBorrowedDate() {
+    return borrowedDate;
+  }
+
   public LocalDate getDueDate() {
     return borrowedDate.plusDays(14);
   }

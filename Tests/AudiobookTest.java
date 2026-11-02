@@ -1,6 +1,11 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AudiobookTest {
@@ -42,5 +47,22 @@ public class AudiobookTest {
     String duration = audiobook.duration();
     //Assert
     assertEquals("12,2 timer", duration);
+  }
+  @Test
+  void testSaveAudiobooks() throws IOException {
+
+    List<Audiobook> audiobooks = List.of(
+             new Audiobook("Mørkeland", "Camilla og Kristine", 43776895894L, 6, "12,2 timer"));
+
+    LibrarySaver librarySaver = new LibrarySaver();
+
+    librarySaver.saveAudiobooks(audiobooks, "test-audiobooks.csv");
+    String n = System.lineSeparator();
+
+    String expected = "Mørkeland,Camilla og Kristine,43776895894,12,2 timer" + n;
+
+    var actual = Files.readString(Path.of("test-audiobooks.csv"));
+
+    assertEquals(expected, actual);
   }
 }

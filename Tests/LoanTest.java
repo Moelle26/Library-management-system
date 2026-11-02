@@ -1,7 +1,11 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -61,5 +65,25 @@ public class LoanTest {
 
         //assert
         assertFalse(isOverdue);
+    }
+
+    @Test
+    void testSaveLoans() throws IOException {
+
+        Member member = new Member("Galf", 111);
+        Book book = new Book("Kastanjemanden", "Søren Sveistrup", 9781492072508L, 1, 50);
+        Loan loan = new Loan(book, member, LocalDate.of(2023, 8, 1));
+
+        List<Loan> loans = List.of(loan);
+        LibrarySaver librarySaver = new LibrarySaver();
+
+        librarySaver.saveLoans(loans, "test-loans.csv");
+        String n = System.lineSeparator();
+
+        String expected = "111,9781492072508,2023-08-01,2023-08-15" + n;
+
+        var actual = Files.readString(Path.of("test-loans.csv"));
+
+        assertEquals(expected, actual);
     }
 }
