@@ -18,6 +18,10 @@ public class Audiobook extends Resource {
     return identifier;
   }
 
+  public int ID() {
+    return ID;
+  }
+
   public String duration() {
     return duration;
   }
