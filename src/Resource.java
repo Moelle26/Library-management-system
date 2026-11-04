@@ -19,6 +19,13 @@ public class Resource implements Comparable <Resource> {
   public int getID() {
     return ID;
   }
+  public String getCreator(){
+    return creator;
+  }
+
+  public String getTitle() {
+  return title;
+  }
 
   public int compareTo(Resource other) {
     return Long.compare(this.getIdentifier(), other.getIdentifier());

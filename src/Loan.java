@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 
 public class Loan implements Comparable<Loan> {
   private final Resource resource;
