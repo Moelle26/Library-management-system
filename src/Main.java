@@ -79,6 +79,6 @@ void main(String[] args) {
     try {
         saver.saveLoans(library.getLoans(), path.resolve("Loans.csv").toString());
     } catch (IOException e) {
-        IO.println("Could not save");
+        IO.println("Could not be saved");
     }
 }
