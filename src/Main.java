@@ -13,7 +13,7 @@ void main(String[] args) {
         members = loader.loadMembers(path.resolve("members.csv"));
         for (Member member : members) {
             library.addMember(member);
-        }
+        } members.sort(null);
     } catch (IOException e) {
         IO.println(" could not find members.csv");
     }
@@ -25,7 +25,7 @@ void main(String[] args) {
         books = loader.loadBooks(path.resolve("books.csv"));
         for (Book book : books) {
             library.addResource(book);
-        }
+        } books.sort(new ResourceCreatorComparator());
     } catch (IOException e) {
         IO.println("Could not find books.csv");
     }
@@ -35,7 +35,7 @@ void main(String[] args) {
         audiobooks = loader.loadAudiobooks(path.resolve("Audiobooks.csv"));
         for (Audiobook audiobook : audiobooks) {
             library.addResource(audiobook);
-        }
+        } audiobooks.sort(new ResourceTitleComparator());
     } catch (IOException e) {
         IO.println("could not find Audiobooks.csv ");
         ;
@@ -56,8 +56,8 @@ void main(String[] args) {
         movies = loader.loadMovies(path.resolve("Movies.csv"));
         for (Movie movie : movies) {
             library.addResource(movie);
-        }
-    }catch (IOException e) {
+        } movies.sort(null);
+    } catch (IOException e) {
         IO.println("Could not find Movies.csv");
     }
 
@@ -66,7 +66,7 @@ void main(String[] args) {
         loans = loader.loadLoans(path.resolve("Loans.csv"), library);
         for (Loan loan : loans) {
             library.loanResource(loan.getResource().getID(), loan.getMember().memberNumber());
-        }
+        } loans.sort(new LoanBorrowedDateComparator());
     } catch (IOException e) {
         IO.println("Could not find Loans.csv");
     }
