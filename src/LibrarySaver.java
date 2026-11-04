@@ -78,15 +78,12 @@ public class LibrarySaver {
 
     public void saveLoans(List<Loan> loans, String filename) throws IOException {
         Path path = Path.of(filename);
+        CsvMapper csvMapper = new CsvMapper();
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Loan loan : loans) {
-                writer.write(loan.getMember().memberNumber() + delimiter
-                        + loan.getResource().getIdentifier() + delimiter
-                        + loan.getBorrowedDate() + delimiter
-                        + loan.getDueDate());
+                writer.write(csvMapper.LoanToCsv(loan));
                 writer.newLine();
             }
         }
     }
 }
-

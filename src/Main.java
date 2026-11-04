@@ -4,6 +4,7 @@ void main(String[] args) {
     Library library = new Library(standardLoanPolicy);
 
     LibraryLoader loader = new LibraryLoader();
+    LibrarySaver saver = new LibrarySaver();
 
     //Members
 
@@ -74,4 +75,10 @@ void main(String[] args) {
     ConsoleUI consoleUI = new ConsoleUI(library);
 
     consoleUI.run();
+
+    try {
+        saver.saveLoans(library.getLoans(), path.resolve("Loans.csv").toString());
+    } catch (IOException e) {
+        IO.println("Could not be saved");
+    }
 }
