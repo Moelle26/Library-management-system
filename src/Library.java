@@ -79,6 +79,10 @@ public class Library {
         return LoanResult.SUCCES;
     }
 
+    public List<Loan> getLoans() {
+        return loans;
+    }
+
     // Finder lånet for den bog og fjerner det fra listen
     public boolean returnResource(int ID) {
         for (Loan loan : loans) {
