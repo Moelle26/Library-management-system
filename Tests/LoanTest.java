@@ -80,7 +80,7 @@ public class LoanTest {
         librarySaver.saveLoans(loans, "test-loans.csv");
         String n = System.lineSeparator();
 
-        String expected = "111,9781492072508,2023-08-01,2023-08-15" + n;
+        String expected = "Member[name=Galf, memberNumber=111],Kastanjemanden af: Søren Sveistrup ISBN: 9781492072508 Antal sider: 50,2023-08-01,2023-08-15," + n;
 
         var actual = Files.readString(Path.of("test-loans.csv"));
 
