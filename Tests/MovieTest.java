@@ -84,8 +84,8 @@ public class MovieTest {
         librarySaver.saveMovies(movies, "test-movies.csv");
         String n = System.lineSeparator();
 
-        String expected = "The Uprising,Paul Greengrass,Scanbox A/S,127 min" + n
-                + "Django,Stacey Sher,Columbia Pictures,165 min" + n;
+        String expected = "The Uprising,Scanbox A/S,2736482748,4,Paul Greengrass,127 min" + n +
+        "Django,Columbia Pictures,639927492,8,Stacey Sher,165 min" + n;
 
         var actual = Files.readString(Path.of("test-movies.csv"));
 

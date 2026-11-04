@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LibrarySaver {
+    private String delimiter = ",";
 
     public void saveMembers(List<Member> members, String filename) throws IOException {
         Path path = Path.of(filename);
-        String delimiter = ",";
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Member member : members) {
                 writer.write(member.memberNumber() + delimiter + member.name());
@@ -21,7 +21,6 @@ public class LibrarySaver {
 
     public void saveBooks(List<Book> books, String filename) throws IOException {
         Path path = Path.of(filename);
-        String delimiter = ",";
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Book book : books) {
                 writer.write(book.title() + delimiter
@@ -36,7 +35,6 @@ public class LibrarySaver {
 
     public void saveVideogames(List<Videogame> videogames, String filename) throws IOException {
         Path path = Path.of(filename);
-        String delimiter = ",";
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Videogame videogame : videogames) {
                 writer.write(videogame.title() + delimiter
@@ -51,12 +49,13 @@ public class LibrarySaver {
 
     public void saveMovies(List<Movie> movies, String filename) throws IOException {
         Path path = Path.of(filename);
-        String delimiter = ",";
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Movie movie : movies) {
                 writer.write(movie.title() + delimiter
-                        + movie.director() + delimiter
                         + movie.studio() + delimiter
+                        + movie.EAN() + delimiter
+                        + movie.ID() + delimiter
+                        + movie.director() + delimiter
                         + movie.duration());
                 writer.newLine();
             }
@@ -65,12 +64,12 @@ public class LibrarySaver {
 
     public void saveAudiobooks(List<Audiobook> audiobooks, String filename) throws IOException {
         Path path = Path.of(filename);
-        String delimiter = ",";
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Audiobook audiobook : audiobooks) {
                 writer.write(audiobook.title() + delimiter
                         + audiobook.author() + delimiter
                         + audiobook.ISBN() + delimiter
+                        + audiobook.ID() + delimiter
                         + audiobook.duration());
                 writer.newLine();
             }
@@ -79,7 +78,6 @@ public class LibrarySaver {
 
     public void saveLoans(List<Loan> loans, String filename) throws IOException {
         Path path = Path.of(filename);
-        String delimiter = ",";
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Loan loan : loans) {
                 writer.write(loan.getMember().memberNumber() + delimiter

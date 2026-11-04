@@ -63,7 +63,7 @@ public class BookTest {
     void testSaveBooks() throws IOException {
 
         List<Book> books = List.of(
-                new Book("Kastanjemanden", " Søren Sveistrup", 9781492072508L, 1, 50),
+                new Book("Kastanjemanden", "Søren Sveistrup", 9781492072508L, 1, 50),
                 new Book("Meter i sekundet", "Stine Pilgaard", 9788763851664L, 2, 65),
                 new Book("Kometen kommer", "Tove Jansson", 9780062316097L, 3, 55));
 
@@ -72,7 +72,7 @@ public class BookTest {
         librarySaver.saveBooks(books, "test-books.csv");
         String n = System.lineSeparator();
 
-        String expected = "Kastanjemanden, Søren Sveistrup,9781492072508,1,50" + n
+        String expected = "Kastanjemanden,Søren Sveistrup,9781492072508,1,50" + n
                +  "Meter i sekundet,Stine Pilgaard,9788763851664,2,65" + n
                + "Kometen kommer,Tove Jansson,9780062316097,3,55"+n;
 

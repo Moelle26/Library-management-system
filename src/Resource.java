@@ -1,4 +1,4 @@
-public class Resource {
+public class Resource implements Comparable <Resource> {
 
   final String title;
   final String creator;
@@ -14,5 +14,13 @@ public class Resource {
 
   public long getIdentifier() {
     return identifier;
+  }
+
+  public int getID() {
+    return ID;
+  }
+
+  public int compareTo(Resource other) {
+    return Long.compare(this.getIdentifier(), other.getIdentifier());
   }
 }

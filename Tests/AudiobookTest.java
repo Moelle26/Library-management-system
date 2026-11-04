@@ -52,14 +52,14 @@ public class AudiobookTest {
   void testSaveAudiobooks() throws IOException {
 
     List<Audiobook> audiobooks = List.of(
-             new Audiobook("Mørkeland", "Camilla og Kristine", 43776895894L, 6, "12,2 timer"));
+             new Audiobook("Mørkeland", "Camilla og Kristine", 43776895894L, 6, "750 min"));
 
     LibrarySaver librarySaver = new LibrarySaver();
 
     librarySaver.saveAudiobooks(audiobooks, "test-audiobooks.csv");
     String n = System.lineSeparator();
 
-    String expected = "Mørkeland,Camilla og Kristine,43776895894,12,2 timer" + n;
+    String expected = "Mørkeland,Camilla og Kristine,43776895894,6,750 min" + n;
 
     var actual = Files.readString(Path.of("test-audiobooks.csv"));
 

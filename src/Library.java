@@ -33,6 +33,15 @@ public class Library {
         }
         return null;
     }
+    public Resource getResourcesIdentifyer(Long identifyer) {
+        for (Resource resource : resources) {
+            if (identifyer == resource.getIdentifier()) {
+                return resource;
+            }
+        }
+        return null;
+    }
+
 
     // Finder member
     public Member getMember(int id) {
